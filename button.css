@@ -20,12 +20,6 @@ html, body{
     height: 100%;
 }
 
-/* Стили для демонстрации */
-
-body{
-
-}
-
 .wrapper{
     height: 300px;
     display: flex;
