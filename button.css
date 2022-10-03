@@ -1,0 +1,134 @@
+/*Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+
+html, body{
+    height: 100%;
+}
+
+/* Стили для демонстрации */
+
+body{
+
+}
+
+.wrapper{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+.button::before,
+.button::after{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 35%;
+    width: 90px;
+    height: 100px;
+    border: 2px solid red;
+    transition: all 1s ease 0s;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.button::before{
+    animation: rotate 20s infinite linear;
+}
+.button::after{
+    animation: rotate 25s infinite linear;
+}
+.button__text {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0px 100px;
+    border-radius: 50px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.button__text span{
+    z-index: 2;
+}
+
+.button__text::before,
+.button__text::after{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #eee; 
+    transition: all 1s ease 0s;
+}
+
+.button__text::before{
+   left: 0;
+   z-index: 2;
+}
+
+.button__text::after{
+    right: 0;
+ }
+
+ .button:hover::before,
+ .button:hover::after{
+    left: 100%;
+    opacity: 0;
+ }
+
+ .button:hover .button__text::before{
+    width: 100%;
+ }
+
+ .button:hover .button__text{
+    top: -5px;
+    color: wheat;
+    box-shadow: 0px 6px 0px 0px burlywood;
+    transition: all 0.5s ease 0.2s;
+    transition: box-shadow 0.5s ease 0s;
+ }
+
+ .button:hover .button__text::before,
+ .button:hover .button__text::after{
+    background-color: blue;
+ }
+
+ .button:active .button__text{
+    top: 0;
+    box-shadow: 0px 4px 0px #0c5b52;
+    transition: all 0.1s ease 0s;
+ }
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
